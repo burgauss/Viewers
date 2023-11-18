@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Viewers" xmlns:views="clr-namespace:Viewers.Views"
         mc:Ignorable="d"
-        Title="Viewers" Height="450" Width="800">
+        Title="Viewers" Height="450" Width="800"
+        Background="LightCyan">
     <Grid>
         <views:ViewersView />
     </Grid>
