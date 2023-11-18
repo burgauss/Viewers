@@ -15,11 +15,12 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Text="Viewers"/>
-            <Button Grid.Column="1" Content="Add" />
+            <TextBlock Grid.Column="0" Text="Viewers" FontSize="32"  FontFamily="Impact" Foreground="Blue"/>
+            <Button Grid.Column="1" Content="Add" VerticalAlignment="Center" Padding="5"
+                    FontSize="16"/>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -29,7 +30,7 @@
             </Grid.ColumnDefinitions>
 
             <customcontrols:YoutubeViewersListing Grid.Column="0"/>
-            <customcontrols:YoutubeViewersDetails Grid.Column="1"/>
+            <customcontrols:YoutubeViewersDetails Grid.Column="1" Margin="10,0,0,0"/>
         </Grid>
 
     </Grid>

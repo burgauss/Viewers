@@ -7,8 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border BorderBrush="Gray" BorderThickness="1">
-            <Grid Margin="5">
+        <Border BorderBrush="DarkGray" 
+                BorderThickness="1"
+                CornerRadius="5"
+                Margin="5"
+                Padding="10">
+            <Grid Margin="5" Grid.IsSharedSizeScope="True">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -16,36 +20,36 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row ="0" Text="Juan" FontSize="16"/>
+                <TextBlock Grid.Row ="0" Text="Juan Antonio" FontSize="24" FontFamily="Tahoma"/>
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" Margin="0 5 0 0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="UserName"/>
-                    <TextBlock Grid.Column="1" Text="Juan"/>
+                    <TextBlock Grid.Column="0" Text="UserName:" FontSize="16" FontWeight="Bold"/>
+                    <TextBlock Grid.Column="1" Text="Juan Antonio" Margin="10,0,0,0" FontSize="16"/>
                 </Grid>
                 
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="2" Margin="0 5 0 0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="120"  SharedSizeGroup="label"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="Is Subscribe"/>
-                    <CheckBox Grid.Column="1" IsChecked="True"/>
+                    <TextBlock Grid.Column="0" Text="Is Subscribe" FontSize="16" FontWeight="Bold"/>
+                    <CheckBox Grid.Column="1" IsChecked="True" VerticalAlignment="Center"/>
                 </Grid>
 
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="3" Margin="0 5 0 0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="Is Member"/>
-                    <CheckBox Grid.Column="1" IsChecked="True"/>
+                    <TextBlock Grid.Column="0" Text="Is Member" FontSize="16" FontWeight="Bold"/>
+                    <CheckBox Grid.Column="1" IsChecked="True" VerticalAlignment="Center"/>
                 </Grid>
 
             </Grid>
