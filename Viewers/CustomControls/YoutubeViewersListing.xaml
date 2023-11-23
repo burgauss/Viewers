@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Viewers.CustomControls"
+             xmlns:local="clr-namespace:Viewers.CustomControls" 
+             xmlns:custom="clr-namespace:DropdownMenuControl;assembly=DropdownMenuControl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -19,7 +20,72 @@
                 <Border x:Name="border"
                         Background="White"
                         CornerRadius="5"/>
-                <ListView />
+                <ListView ItemsSource="{Binding youtubeViewersListingItemViewModels}">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="10" TextBlock.FontSize="16">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" Text="{Binding Username}" />
+
+                                    <custom:DropdownMenu Grid.Column="1" 
+                                                     Margin="10 0 0 0" >
+                                        <Border Background="White"
+                                                BorderBrush="Gray" 
+                                                BorderThickness="1">
+                                            <StackPanel>
+                                                <StackPanel.Resources>
+                                                    <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                                        <Setter Property="Background" Value="#f0f0f0"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+                                                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+
+                                                        <Style.Triggers>
+                                                            <Trigger Property="IsMouseOver" Value="True">
+                                                                <Trigger.EnterActions>
+                                                                    <BeginStoryboard>
+                                                                        <Storyboard>
+                                                                            <ColorAnimation 
+                                                                            Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                                            To="#c7c7c7" 
+                                                                            Duration="0:0:0.1" />
+                                                                        </Storyboard>
+                                                                    </BeginStoryboard>
+                                                                </Trigger.EnterActions>
+                                                                <Trigger.ExitActions>
+                                                                    <BeginStoryboard>
+                                                                        <Storyboard>
+                                                                            <ColorAnimation 
+                                                                                Storyboard.TargetProperty="Background.(SolidColorBrush.Color)"
+                                                                                To="#f0f0f0" 
+                                                                                Duration="0:0:0.1" />
+                                                                        </Storyboard>
+                                                                    </BeginStoryboard>
+                                                                </Trigger.ExitActions>
+                                                            </Trigger>
+                                                        </Style.Triggers>
+                                                    </Style>
+                                                </StackPanel.Resources>
+                                                <Button Content="edit"/>
+                                                <Button Content="delete"/>
+                                            </StackPanel>
+                                        </Border>
+
+                                    </custom:DropdownMenu>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
         </Border>
     </Grid>

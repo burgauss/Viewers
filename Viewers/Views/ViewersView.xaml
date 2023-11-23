@@ -19,8 +19,10 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Column="0" Text="Viewers" FontSize="32"  FontFamily="Impact" Foreground="Blue"/>
-            <Button Grid.Column="1" Content="Add" 
-                    FontSize="16"/>
+            <Button Grid.Column="1" 
+                    Content="Add" 
+                    FontSize="16"
+                    Command="{Binding AddYoutubeViewerCommand}"/>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -29,8 +31,8 @@
                 <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
 
-            <customcontrols:YoutubeViewersListing Grid.Column="0"/>
-            <customcontrols:YoutubeViewersDetails Grid.Column="1" Margin="10,0,0,0"/>
+            <customcontrols:YoutubeViewersListing Grid.Column="0" DataContext="{Binding YoutubeViewersListingViewModel}"/>
+            <customcontrols:YoutubeViewersDetails Grid.Column="1" Margin="10,0,0,0" DataContext="{Binding YoutubeViewersDetailViewModel}"/>
         </Grid>
 
     </Grid>

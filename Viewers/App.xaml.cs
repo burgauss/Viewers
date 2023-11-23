@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Viewers.ViewModels;
 
 namespace Viewers
 {
@@ -9,7 +10,11 @@ namespace Viewers
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            MainWindow = new MainWindow();
+            MainWindow = new MainWindow()
+            {
+                DataContext = new ViewersViewModel()
+            };
+
             MainWindow.Show();
 
             base.OnStartup(e);
