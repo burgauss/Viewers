@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Viewers.Stores;
 
 namespace Viewers.ViewModels
 {
@@ -13,11 +14,11 @@ namespace Viewers.ViewModels
         public YoutubeViewersListingViewModel YoutubeViewersListingViewModel { get; }
         public ICommand AddYoutubeViewerCommand { get; }
 
-        public ViewersViewModel()
+        public ViewersViewModel(SelectedYoutubeViewersStore _selectedYoutubeViewersStore)
         {
-            YoutubeViewersListingViewModel = new YoutubeViewersListingViewModel();
+            YoutubeViewersListingViewModel = new YoutubeViewersListingViewModel(_selectedYoutubeViewersStore);
 
-            YoutubeViewersDetailViewModel = new YoutubeViewersDetailViewModel();
+            YoutubeViewersDetailViewModel = new YoutubeViewersDetailViewModel(_selectedYoutubeViewersStore);
         }
     }
 }

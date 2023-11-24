@@ -22,7 +22,11 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row ="0" Text="Juan Antonio" FontSize="24" FontFamily="Tahoma"/>
+                <TextBlock 
+                    Grid.Row ="0" 
+                    Text="{Binding Username}"
+                    FontSize="24" 
+                    FontFamily="Tahoma"/>
 
                 <Grid Grid.Row="1" Margin="0 5 0 0">
                     <Grid.ColumnDefinitions>
@@ -31,7 +35,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0" Text="UserName:" FontSize="16" FontWeight="Bold"/>
-                    <TextBlock Grid.Column="1" Text="Juan Antonio" Margin="10,0,0,0" FontSize="16"/>
+                    <TextBlock Grid.Column="1" Text="{Binding Username}" Margin="10,0,0,0" FontSize="16"/>
                 </Grid>
                 
                 <Grid Grid.Row="2" Margin="0 5 0 0">
@@ -41,7 +45,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0" Text="Is Subscribe" FontSize="16" FontWeight="Bold"/>
-                    <CheckBox Grid.Column="1" IsChecked="True" VerticalAlignment="Center"/>
+                    <CheckBox Grid.Column="1" IsChecked="{Binding IsSubscribedDisplay}" VerticalAlignment="Center" IsEnabled="False"/>
                 </Grid>
 
                 <Grid Grid.Row="3" Margin="0 5 0 0">
@@ -51,7 +55,7 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Column="0" Text="Is Member" FontSize="16" FontWeight="Bold"/>
-                    <CheckBox Grid.Column="1" IsChecked="True" VerticalAlignment="Center"/>
+                    <CheckBox Grid.Column="1" IsChecked="{Binding IsMemberDisplay}" VerticalAlignment="Center" IsEnabled="False"/>
                 </Grid>
 
             </Grid>

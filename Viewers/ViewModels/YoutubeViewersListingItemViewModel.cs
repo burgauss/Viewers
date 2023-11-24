@@ -10,8 +10,8 @@ namespace Viewers.ViewModels
     public class YoutubeViewersListingItemViewModel : ViewModelBase
     {
         public string Username { get; }
-        public ICommand Edit { get; }
-        public ICommand Delete { get; }
+        public ICommand EditCommand { get; }
+        public ICommand DeleteCommand { get; }
 
         public YoutubeViewersListingItemViewModel(string username)
         {

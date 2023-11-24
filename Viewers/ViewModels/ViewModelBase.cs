@@ -11,7 +11,7 @@ namespace Viewers.ViewModels
     {
         public event PropertyChangedEventHandler? PropertyChanged;
     
-        protected virtual void onPropertyChnanged(string propertyName = null)
+        protected virtual void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

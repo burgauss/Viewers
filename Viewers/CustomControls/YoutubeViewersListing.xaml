@@ -20,7 +20,8 @@
                 <Border x:Name="border"
                         Background="White"
                         CornerRadius="5"/>
-                <ListView ItemsSource="{Binding youtubeViewersListingItemViewModels}">
+                <ListView ItemsSource="{Binding youtubeViewersListingItemViewModels}"
+                          SelectedItem="{Binding SelectedYoutubeViewerListingItemViewModel}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
@@ -87,8 +88,8 @@
                                                         </Style.Triggers>
                                                     </Style>
                                                 </StackPanel.Resources>
-                                                <Button Content="edit"/>
-                                                <Button Content="delete"/>
+                                                <Button Content="Edit" Command="{Binding EditCommand}"/>
+                                                <Button Content="Delete" Command="{Binding DeleteCommand}"/>
                                             </StackPanel>
                                         </Border>
 
