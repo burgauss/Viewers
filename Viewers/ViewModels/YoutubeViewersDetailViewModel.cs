@@ -33,8 +33,23 @@ namespace Viewers.ViewModels
 
         public YoutubeViewersDetailViewModel(SelectedYoutubeViewersStore selectedYoutubeViewersStore)
         {
-
             _selectedYoutubeViewersStore = selectedYoutubeViewersStore;
+
+            _selectedYoutubeViewersStore.SelectedYoutubeViewerChanged += _selectedYoutubeViewersStore_SelectedYoutubeViewerChanged;
+        }
+
+
+        protected override void Dispose()
+        {
+            _selectedYoutubeViewersStore.SelectedYoutubeViewerChanged -= _selectedYoutubeViewersStore_SelectedYoutubeViewerChanged;
+            base.Dispose();
+        }
+        private void _selectedYoutubeViewersStore_SelectedYoutubeViewerChanged()
+        {
+            OnPropertyChanged(nameof(HasSelectedYoutubeViewer));
+            OnPropertyChanged(nameof(Username));
+            OnPropertyChanged(nameof(IsSubscribedDisplay));
+            OnPropertyChanged(nameof(IsMemberDisplay));
         }
 
 

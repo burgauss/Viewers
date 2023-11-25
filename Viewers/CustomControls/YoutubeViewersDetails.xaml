@@ -14,50 +14,81 @@
                 CornerRadius="5"
                 Margin="5 5 5 10"
                 Padding="10">
-            <Grid Margin="5" Grid.IsSharedSizeScope="True">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock 
+            <Grid>
+                <Grid>
+                    <Grid.Style>
+                        <Style TargetType="Grid" >
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedYoutubeViewer}" Value="False">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <TextBlock 
+                        Grid.Row ="0" 
+                        Text="Please Select a User to see the details"
+                        TextWrapping="WrapWithOverflow"
+                        FontSize="24" 
+                        FontFamily="Tahoma"/>
+                </Grid>
+                
+                
+                <Grid Margin="5" Grid.IsSharedSizeScope="True">
+                    <Grid.Style>
+                        <Style TargetType="Grid" >
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding HasSelectedYoutubeViewer}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                     </Grid.RowDefinitions>
+                    <TextBlock 
                     Grid.Row ="0" 
                     Text="{Binding Username}"
                     FontSize="24" 
                     FontFamily="Tahoma"/>
 
-                <Grid Grid.Row="1" Margin="0 5 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Row="1" Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="UserName:" FontSize="16" FontWeight="Bold"/>
-                    <TextBlock Grid.Column="1" Text="{Binding Username}" Margin="10,0,0,0" FontSize="16"/>
+                        <TextBlock Grid.Column="0" Text="UserName:" FontSize="16" FontWeight="Bold"/>
+                        <TextBlock Grid.Column="1" Text="{Binding Username}" Margin="10,0,0,0" FontSize="16"/>
+                    </Grid>
+
+                    <Grid Grid.Row="2" Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"  SharedSizeGroup="label"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Is Subscribe" FontSize="16" FontWeight="Bold"/>
+                        <CheckBox Grid.Column="1" IsChecked="{Binding IsSubscribedDisplay}" VerticalAlignment="Center" IsEnabled="False"/>
+                    </Grid>
+
+                    <Grid Grid.Row="3" Margin="0 5 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock Grid.Column="0" Text="Is Member" FontSize="16" FontWeight="Bold"/>
+                        <CheckBox Grid.Column="1" IsChecked="{Binding IsMemberDisplay}" VerticalAlignment="Center" IsEnabled="False"/>
+                    </Grid>
+
                 </Grid>
-                
-                <Grid Grid.Row="2" Margin="0 5 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="120"  SharedSizeGroup="label"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Column="0" Text="Is Subscribe" FontSize="16" FontWeight="Bold"/>
-                    <CheckBox Grid.Column="1" IsChecked="{Binding IsSubscribedDisplay}" VerticalAlignment="Center" IsEnabled="False"/>
-                </Grid>
-
-                <Grid Grid.Row="3" Margin="0 5 0 0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" SharedSizeGroup="label"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Grid.Column="0" Text="Is Member" FontSize="16" FontWeight="Bold"/>
-                    <CheckBox Grid.Column="1" IsChecked="{Binding IsMemberDisplay}" VerticalAlignment="Center" IsEnabled="False"/>
-                </Grid>
-
             </Grid>
         </Border>
     </Grid>

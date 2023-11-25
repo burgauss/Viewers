@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Viewers.Models;
 using Viewers.Stores;
 
 namespace Viewers.ViewModels
@@ -11,7 +12,7 @@ namespace Viewers.ViewModels
     public class YoutubeViewersListingViewModel : ViewModelBase
     {
         private readonly ObservableCollection<YoutubeViewersListingItemViewModel> _youtubeViewersListingItemViewModel;
-        private readonly SelectedYoutubeViewersStore selectedYoutubeViewersStore;
+        private readonly SelectedYoutubeViewersStore _selectedYoutubeViewersStore;
 
         public IEnumerable<YoutubeViewersListingItemViewModel> youtubeViewersListingItemViewModels => _youtubeViewersListingItemViewModel;
 
@@ -27,16 +28,17 @@ namespace Viewers.ViewModels
                 _selectedYoutubeViewerListingItemViewModel = value;
                 OnPropertyChanged(nameof(SelectedYoutubeViewerListingItemViewModel));
 
-                selectedYoutubeViewersStore.SelectedYoutubeViewer = new Models.YoutubeViewer();
+                _selectedYoutubeViewersStore.SelectedYoutubeViewer = _selectedYoutubeViewerListingItemViewModel?.YoutubeViewer;
             }
         }
-        public YoutubeViewersListingViewModel(SelectedYoutubeViewersStore _selectedYoutubeViewersStore)
+        public YoutubeViewersListingViewModel(SelectedYoutubeViewersStore selectedYoutubeViewersStore)
         {
+            _selectedYoutubeViewersStore = selectedYoutubeViewersStore;
             _youtubeViewersListingItemViewModel = new ObservableCollection<YoutubeViewersListingItemViewModel>();
-            _youtubeViewersListingItemViewModel.Add(new YoutubeViewersListingItemViewModel("Juan"));
-            _youtubeViewersListingItemViewModel.Add(new YoutubeViewersListingItemViewModel("Eneida Paola"));
-            _youtubeViewersListingItemViewModel.Add(new YoutubeViewersListingItemViewModel("David"));
-            selectedYoutubeViewersStore = _selectedYoutubeViewersStore;
+
+            _youtubeViewersListingItemViewModel.Add(new YoutubeViewersListingItemViewModel(new YoutubeViewer("Juan Antonio", false, false)));
+            _youtubeViewersListingItemViewModel.Add(new YoutubeViewersListingItemViewModel(new YoutubeViewer("Eneida Paola", true, true)));
+            _youtubeViewersListingItemViewModel.Add(new YoutubeViewersListingItemViewModel(new YoutubeViewer("Davido", true, true)));
         }
 
     }

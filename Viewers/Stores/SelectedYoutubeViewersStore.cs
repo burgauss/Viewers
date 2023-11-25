@@ -16,7 +16,7 @@ namespace Viewers.Stores
             {
                 return _selectedYoutubeViewer;
             }
-            private set
+            set
             {
                 _selectedYoutubeViewer = value;
                 SelectedYoutubeViewerChanged?.Invoke();
