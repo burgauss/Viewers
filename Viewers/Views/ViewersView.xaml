@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Viewers.Views" xmlns:customcontrols="clr-namespace:Viewers.CustomControls"
+             xmlns:local="clr-namespace:Viewers.Views" 
+             xmlns:customcontrols="clr-namespace:Viewers.CustomControls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Margin="15">
@@ -18,7 +19,12 @@
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Text="Viewers" FontSize="32"  FontFamily="Impact" Foreground="Blue"/>
+            <TextBlock Grid.Column="0" 
+                       Text="Viewers" 
+                       Style="{StaticResource pageHeader}"  
+                       FontFamily="Impact" 
+                       Foreground="Blue"/>
+            
             <Button Grid.Column="1" 
                     Content="Add" 
                     FontSize="16"

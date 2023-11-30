@@ -8,7 +8,7 @@ using Viewers.Stores;
 
 namespace Viewers.ViewModels
 {
-    class ViewersViewModel : ViewModelBase
+    public class ViewersViewModel : ViewModelBase
     {
         public YoutubeViewersDetailViewModel YoutubeViewersDetailViewModel { get; }
         public YoutubeViewersListingViewModel YoutubeViewersListingViewModel { get; }
