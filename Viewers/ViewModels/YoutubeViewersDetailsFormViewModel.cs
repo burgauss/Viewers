@@ -39,7 +39,9 @@ namespace Viewers.ViewModels
 		}
 
 		private bool _isMember;
-		public bool IsMember
+
+
+        public bool IsMember
 		{
 			get
 			{
@@ -55,5 +57,10 @@ namespace Viewers.ViewModels
 		public bool CanSubmit => !string.IsNullOrEmpty(Username);
         public ICommand SubmitCommand { get; }
         public ICommand CancelCommand { get; }
+        public YoutubeViewersDetailsFormViewModel(ICommand submitCommand, ICommand cancelCommand)
+        {
+            SubmitCommand = submitCommand;
+            CancelCommand = cancelCommand;
+        }
     }
 }

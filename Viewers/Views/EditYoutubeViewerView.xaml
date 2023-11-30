@@ -20,7 +20,7 @@
                     FontFamily="Impact" 
                     Foreground="Blue" />
 
-        <customcontrols:YoutubeViewersDetailsForm Margin="0 20 0 0" />
+        <customcontrols:YoutubeViewersDetailsForm Margin="0 20 0 0" DataContext="{Binding YoutubeViewersDetailsFormViewModel}"/>
 
     </Grid>
 </UserControl>

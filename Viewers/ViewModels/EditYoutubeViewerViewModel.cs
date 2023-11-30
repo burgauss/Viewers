@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Viewers.Commands;
+using Viewers.Stores;
 
 namespace Viewers.ViewModels
 {
@@ -10,9 +13,10 @@ namespace Viewers.ViewModels
     {
         public YoutubeViewersDetailsFormViewModel YoutubeViewersDetailsFormViewModel { get; set; }
 
-        public EditYoutubeViewerViewModel()
+        public EditYoutubeViewerViewModel(ModalNavigationStore modalNavigationStore)
         {
-            YoutubeViewersDetailsFormViewModel = new YoutubeViewersDetailsFormViewModel();
+            ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);
+            YoutubeViewersDetailsFormViewModel = new YoutubeViewersDetailsFormViewModel(null, cancelCommand);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace Viewers.ViewModels
 
             _modalNavigationStore.CurrentViewModelChanged += ModalNavigationStore_CurrentViewModelChanged;
 
-            _modalNavigationStore.CurrentViewModel = new AddYoutubeViewerViewViewModel();
+            //_modalNavigationStore.CurrentViewModel = new AddYoutubeViewerViewViewModel();
         }
 
         protected override void Dispose()

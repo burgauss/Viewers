@@ -20,7 +20,7 @@ namespace Viewers
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            ViewersViewModel youtubeViewersViewModel = new ViewersViewModel(_selectedYoutubeViewersStore);
+            ViewersViewModel youtubeViewersViewModel = new ViewersViewModel(_selectedYoutubeViewersStore, _modalNavigationStore) ;
                 
             MainWindow = new MainWindow()
             {

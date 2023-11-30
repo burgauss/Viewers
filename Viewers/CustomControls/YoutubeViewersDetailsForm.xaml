@@ -33,9 +33,7 @@
                            VerticalAlignment="Center"/>
                 
                 <TextBox Grid.Column="1" 
-                         Text="{Binding Username}" 
-                         FontSize="16" 
-                         FontWeight="Bold" 
+                         Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" 
                          VerticalAlignment="Center"/>
                 
             </Grid>
