@@ -17,7 +17,7 @@ namespace Viewers.ViewModels
 
         public ViewersViewModel(SelectedYoutubeViewersStore _selectedYoutubeViewersStore, ModalNavigationStore modalNavigationStore)
         {
-            YoutubeViewersListingViewModel = new YoutubeViewersListingViewModel(_selectedYoutubeViewersStore);
+            YoutubeViewersListingViewModel = new YoutubeViewersListingViewModel(_selectedYoutubeViewersStore, modalNavigationStore);
 
             YoutubeViewersDetailViewModel = new YoutubeViewersDetailViewModel(_selectedYoutubeViewersStore);
 

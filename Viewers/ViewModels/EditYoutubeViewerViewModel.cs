@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Viewers.Commands;
+using Viewers.Models;
 using Viewers.Stores;
 
 namespace Viewers.ViewModels
@@ -13,10 +14,15 @@ namespace Viewers.ViewModels
     {
         public YoutubeViewersDetailsFormViewModel YoutubeViewersDetailsFormViewModel { get; set; }
 
-        public EditYoutubeViewerViewModel(ModalNavigationStore modalNavigationStore)
+        public EditYoutubeViewerViewModel(YoutubeViewer youtubeViewer, ModalNavigationStore modalNavigationStore)
         {
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);
-            YoutubeViewersDetailsFormViewModel = new YoutubeViewersDetailsFormViewModel(null, cancelCommand);
+            YoutubeViewersDetailsFormViewModel = new YoutubeViewersDetailsFormViewModel(null, cancelCommand)
+            {
+                Username = youtubeViewer.Username,
+                IsMember = youtubeViewer.IsMember,
+                IsSubscribed = youtubeViewer.IsSubscribed
+            };
         }
     }
 }
