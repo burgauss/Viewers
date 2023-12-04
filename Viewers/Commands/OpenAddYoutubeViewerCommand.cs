@@ -11,16 +11,18 @@ namespace Viewers.Commands
 {
     public class OpenAddYoutubeViewerCommand : CommandBase
     {
+        private readonly YoutubeViewerStore _youtubeViewerStore;
         private readonly ModalNavigationStore _modalNavigationStore;
 
-        public OpenAddYoutubeViewerCommand(ModalNavigationStore modalNavigationStore)
+        public OpenAddYoutubeViewerCommand(YoutubeViewerStore youtubeViewerStore, ModalNavigationStore modalNavigationStore)
         {
+            _youtubeViewerStore = youtubeViewerStore;
             _modalNavigationStore = modalNavigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            AddYoutubeViewerViewViewModel addYoutubeViewerViewViewModel = new AddYoutubeViewerViewViewModel(_modalNavigationStore);
+            AddYoutubeViewerViewViewModel addYoutubeViewerViewViewModel = new AddYoutubeViewerViewViewModel(_youtubeViewerStore, _modalNavigationStore);
             _modalNavigationStore.CurrentViewModel = addYoutubeViewerViewViewModel;  
         }
     }

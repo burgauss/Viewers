@@ -15,13 +15,18 @@ namespace Viewers.ViewModels
         public YoutubeViewersListingViewModel YoutubeViewersListingViewModel { get; }
         public ICommand AddYoutubeViewerCommand { get; }
 
-        public ViewersViewModel(SelectedYoutubeViewersStore _selectedYoutubeViewersStore, ModalNavigationStore modalNavigationStore)
+        public ViewersViewModel(YoutubeViewerStore youtubeViewerStore, SelectedYoutubeViewersStore _selectedYoutubeViewersStore, ModalNavigationStore modalNavigationStore)
         {
-            YoutubeViewersListingViewModel = new YoutubeViewersListingViewModel(_selectedYoutubeViewersStore, modalNavigationStore);
+            YoutubeViewersListingViewModel = new YoutubeViewersListingViewModel(
+                youtubeViewerStore,
+                _selectedYoutubeViewersStore, 
+                modalNavigationStore);
 
             YoutubeViewersDetailViewModel = new YoutubeViewersDetailViewModel(_selectedYoutubeViewersStore);
 
-            AddYoutubeViewerCommand = new OpenAddYoutubeViewerCommand(modalNavigationStore);
+            AddYoutubeViewerCommand = new OpenAddYoutubeViewerCommand(
+                youtubeViewerStore, 
+                modalNavigationStore);
         }
     }
 }

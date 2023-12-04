@@ -16,8 +16,9 @@ namespace Viewers.ViewModels
 
         public EditYoutubeViewerViewModel(YoutubeViewer youtubeViewer, ModalNavigationStore modalNavigationStore)
         {
+            ICommand submitCommand = new EditYoutubeViewerCommand(modalNavigationStore);
             ICommand cancelCommand = new CloseModalCommand(modalNavigationStore);
-            YoutubeViewersDetailsFormViewModel = new YoutubeViewersDetailsFormViewModel(null, cancelCommand)
+            YoutubeViewersDetailsFormViewModel = new YoutubeViewersDetailsFormViewModel(submitCommand, cancelCommand)
             {
                 Username = youtubeViewer.Username,
                 IsMember = youtubeViewer.IsMember,
